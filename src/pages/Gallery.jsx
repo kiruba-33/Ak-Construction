@@ -12,7 +12,7 @@ const CinematicGalleryPage = () => {
       {/* 1. 3D Model Section */}
       <Hero 
   title={<>Interactive 3D <br /> Project Showcase</>} 
-  type="model" 
+  type="image" 
   src="hero1.webp"  
 />
 
