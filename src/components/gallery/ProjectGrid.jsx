@@ -1,39 +1,110 @@
-// src/components/gallery/ProjectGrid.jsx
-import React from 'react';
-import { motion } from 'motion/react';
-import { Search } from 'lucide-react';
-import { imagesData } from '../../data/GalleryData';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-const ProjectGrid = ({ itemVariants }) => {
+const imagesData = [
+  { id: 1, url: "/hero1.webp", title: "Modern Luxury Home", category: "Architecture" },
+  { id: 2, url: "/hero1.webp", title: "Luxury Apartment Block", category: "Residential" },
+  { id: 3, url: "/hero1.webp", title: "Urban Development", category: "Architecture" },
+  { id: 4, url: "/hero1.webp", title: "Grand Villa Entrance", category: "Construction" },
+  { id: 5, url: "/hero1.webp", title: "Resort Style Living", category: "Landscape" },
+  { id: 6, url: "/hero1.webp", title: "Interior Excellence", category: "Interior" },
+  { id: 7, url: "/hero1.webp", title: "Commercial Complex", category: "Commercial" },
+  { id: 8, url: "/hero1.webp", title: "Skyline Tower", category: "Architecture" },
+];
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.06 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
+};
+
+const ProjectGrid = () => {
+  const [activeImage, setActiveImage] = useState(null);
+
   return (
-    <div className="grid grid-cols-12 auto-rows-[280px] gap-4 md:gap-6">
-      {imagesData.map((image) => (
-        <motion.div
-          key={image.id}
-          variants={itemVariants}
-          className={`group relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white ${image.span} cursor-pointer bg-slate-200`}
+    <div className="w-full bg-[#f3f4f6] pt-8 pb-24">
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-7xl mx-auto px-4 sm:px-6"
+      >
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[220px] md:[grid-auto-flow:dense]">
+
+          {imagesData.map((img, index) => {
+            const pattern = index % 6;
+
+            return (
+              <motion.div
+                key={img.id}
+                variants={item}
+                onClick={() => setActiveImage(img.url)}
+                className={`
+                  relative group cursor-pointer overflow-hidden rounded-2xl
+
+                  ${pattern === 0 ? "col-span-2 row-span-2" : ""}
+                  ${pattern === 1 ? "row-span-2" : ""}
+
+                  md:${pattern === 0 ? "col-span-2 row-span-2" : ""}
+                  md:${pattern === 2 ? "row-span-2" : ""}
+
+                  lg:${pattern === 0 ? "col-span-2 row-span-2" : ""}
+                  lg:${pattern === 3 ? "row-span-2" : ""}
+                `}
+              >
+
+                <img
+                  src={img.url}
+                  alt=""
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                <div className="absolute bottom-3 left-3 right-3">
+                  <h3 className="text-white text-sm font-semibold">
+                    {img.title}
+                  </h3>
+                  <p className="text-gray-300 text-xs">
+                    {img.category}
+                  </p>
+                </div>
+
+              </motion.div>
+            );
+          })}
+
+        </div>
+      </motion.div>
+
+      {/* 🔥 FULLSCREEN IMAGE VIEW */}
+      {activeImage && (
+        <div
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
+          onClick={() => setActiveImage(null)}
         >
-          <img src={image.url} alt="Reality" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-          <img 
-            src={image.blueprint} 
-            alt="Blueprint" 
-            className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-700 z-10 grayscale brightness-75" 
+          <img
+            src={activeImage}
+            className="max-w-[95%] max-h-[90%] rounded-xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex items-end opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
-            <div className="text-white w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.3em] text-red-500 mb-2">{image.category}</span>
-              <h3 className="text-3xl font-bold tracking-tight mb-4">{image.title}</h3>
-              <div className="flex items-center justify-between border-t border-white/20 pt-4">
-                <p className="text-xs text-slate-300 font-medium uppercase tracking-widest">View Details</p>
-                <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center"><Search className="w-5 h-5" /></div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-6 right-6 z-30 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[9px] px-4 py-1.5 rounded-full font-bold uppercase tracking-widest opacity-100 group-hover:opacity-0 transition-opacity">
-            Blueprint View
-          </div>
-        </motion.div>
-      ))}
+
+          <button
+            onClick={() => setActiveImage(null)}
+            className="absolute top-6 right-6 text-white text-2xl"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // useNavigate import panniyaachu
 import PhysicsButton from '../PhysicsButton';
 
 const projects = [
@@ -50,6 +50,8 @@ const projects = [
 ];
 
 const CinematicMasonry = () => {
+  const navigate = useNavigate(); // navigate function-ai initialize panniyaachu
+
   return (
     <section className="py-16 md:py-24 bg-[#f3f4f4] text-black overflow-hidden font-sans">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">

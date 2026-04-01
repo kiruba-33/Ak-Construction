@@ -1,63 +1,57 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
 const PhysicsButton = ({ children, onClick }) => {
-  const buttonRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const [pressed, setPressed] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
-  // 1. Spring properties setup
-  const [{ x, y, scale, bgColor }, api] = useSpring(() => ({
-    x: 0,
-    y: 0,
-    scale: 1,
-    bgColor: '#ea580c', // Default Orange
-    config: { tension: 350, friction: 15, mass: 1 } 
-  }));
-
-  // 2. Mouse Move Logic (Magnetic Pull)
-  const handleMouseMove = (e) => {
-    if (!buttonRef.current) return;
-    
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
-    
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-
-    // Magnet sensitivity (0.35) - button mouse-a follow pannum
-    const moveX = (clientX - centerX) * 0.35;
-    const moveY = (clientY - centerY) * 0.35;
-
-    api.start({ x: moveX, y: moveY, scale: 1.1, bgColor: '#f97316' });
-  };
-
-  // 3. Reset Logic
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    api.start({ x: 0, y: 0, scale: 1, bgColor: '#ea580c' });
-  };
+  const spring = useSpring({
+    scale: pressed ? 0.93 : hovered ? 1.05 : 1,
+    y: pressed ? 3 : hovered ? -4 : 0,
+    boxShadow: pressed
+      ? "0px 5px 12px rgba(0,0,0,0.2)"
+      : hovered
+      ? "0px 18px 30px rgba(0,0,0,0.2)"  // ✅ neutral shadow
+      : "0px 8px 18px rgba(0,0,0,0.12)",
+    config: {
+      tension: 320,
+      friction: 18,
+    },
+  });
 
   return (
     <animated.button
-      ref={buttonRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      onClick={onClick}
       style={{
-        x,
-        y,
-        scale,
-        backgroundColor: bgColor,
+        transform: spring.scale.to(
+          (s) => `scale(${s}) translateY(${spring.y.get()}px)`
+        ),
+        boxShadow: spring.boxShadow,
       }}
-      className="px-8 py-3 rounded-full text-white font-bold shadow-lg cursor-pointer outline-none relative overflow-hidden"
+      className="relative px-7 py-3 rounded-full overflow-hidden select-none text-white font-semibold tracking-wide"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setHovered(false);
+        setPressed(false);
+      }}
+      onMouseDown={() => setPressed(true)}
+      onMouseUp={() => setPressed(false)}
+      onClick={onClick}
     >
+      {/* 🔴 BASE GRADIENT */}
+      <span className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-orange-500"></span>
+
+      {/* 🔥 HOVER SWEEP */}
+      <span
+        className={`absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-red-700 transition-transform duration-500 ease-out ${
+          hovered ? "translate-x-0" : "-translate-x-full"
+        }`}
+      ></span>
+
+      {/* TEXT */}
       <span className="relative z-10">{children}</span>
-      
-      {/* Optional: Hover-la varra chinna light effect */}
-      {isHovered && (
-        <div className="absolute inset-0 bg-white/10 pointer-events-none" />
-      )}
+
+      {/* ✨ INNER LIGHT */}
+      <span className="absolute inset-0 rounded-full pointer-events-none bg-gradient-to-t from-white/10 to-transparent opacity-40" />
     </animated.button>
   );
 };

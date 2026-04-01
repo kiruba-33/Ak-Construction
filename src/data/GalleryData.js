@@ -1,22 +1,105 @@
 // src/data/GalleryData.js
+
 export const imagesData = [
   { 
     id: 'hero',
-    url: '/assets/gallery/hero-project.jpg', 
-    blueprint: '/assets/gallery/hero-blueprint.jpg',
-    alt: 'Premium Architectural Design',
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp',
     title: 'Modern Luxury Home',
-    category: 'Architecture',
-    span: 'col-span-12 row-span-2' 
+    category: 'Architecture'
   },
-  { id: 1, url: '/assets/gallery/image1.jpg', blueprint: '/assets/gallery/image1-bp.jpg', title: 'Grand Villa Entrance', category: 'Construction', span: 'col-span-8' },
-  { id: 2, url: '/assets/gallery/image2.jpg', blueprint: '/assets/gallery/image2-bp.jpg', title: 'Elegant Interior Space', category: 'Interior', span: 'col-span-4' },
-  { id: 3, url: '/assets/gallery/image3.jpg', blueprint: '/assets/gallery/image3-bp.jpg', title: 'Resort-Style Living', category: 'Landscape', span: 'col-span-4' },
-  { id: 4, url: '/assets/gallery/image4.jpg', blueprint: '/assets/gallery/image4-bp.jpg', title: 'Urban Development', category: 'Architecture', span: 'col-span-8' },
+
+  { 
+    id: 1, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Grand Villa Entrance', 
+    category: 'Construction'
+  },
+
+  { 
+    id: 2, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Elegant Interior Space', 
+    category: 'Interior'
+  },
+
+  { 
+    id: 3, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Resort-Style Living', 
+    category: 'Landscape'
+  },
+
+  { 
+    id: 4, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Urban Development', 
+    category: 'Architecture'
+  },
+
+  // 🔥 NEW 5 ITEMS
+
+  { 
+    id: 5, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Luxury Apartment Block', 
+    category: 'Residential'
+  },
+
+  { 
+    id: 6, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Corporate Office Tower', 
+    category: 'Commercial'
+  },
+
+  { 
+    id: 7, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Modern Kitchen Design', 
+    category: 'Interior'
+  },
+
+  { 
+    id: 8, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Villa Landscape Garden', 
+    category: 'Landscape'
+  },
+
+  { 
+    id: 9, 
+    url: '/hero1.webp', 
+    blueprint: '/hero1.webp', 
+    title: 'Smart Home Exterior', 
+    category: 'Architecture'
+  },
 ];
 
+// src/data/GalleryData.js
+
 export const processSteps = [
-  { title: "Planning", desc: "Digital Blueprints & 3D Design", icon: "📐" },
-  { title: "Foundation", desc: "Strong Base for Your Dreams", icon: "🏗️" },
-  { title: "Finishing", desc: "Premium Interiors & Aesthetics", icon: "✨" }
+  {
+    icon: "📐",
+    title: "Understanding Your Vision",
+    desc: "We begin by understanding your lifestyle, preferences, and goals to design a space that truly reflects your vision.",
+  },
+  {
+    icon: "🏗️",
+    title: "Building with Precision",
+    desc: "Every structure is crafted with precision using high-quality materials, ensuring strength, durability, and long-term value.",
+  },
+  {
+    icon: "✨",
+    title: "Delivering Excellence",
+    desc: "From final finishes to handover, we ensure every detail is perfected to deliver a space that exceeds expectations.",
+  },
 ];
