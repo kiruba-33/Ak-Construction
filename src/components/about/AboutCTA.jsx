@@ -1,65 +1,73 @@
 import React from 'react';
 import MotionWrapper from '../MotionWrapper';
-import { Quote, SendHorizontal } from 'lucide-react';
+import { SendHorizontal } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PhysicsButton from '../PhysicsButton';
 
 const ctaBg = "/hero1.webp";
 
 const AboutCTA = () => {
   return (
-    <section className="py-16 md:py-24 bg-transparent relative overflow-hidden font-sans">
-      <div className="max-w-7xl mx-auto z-10 relative px-4 sm:px-6 lg:px-8">
-        <MotionWrapper>
-          
-          <div 
-            className="w-full relative px-5 sm:px-6 md:px-12 lg:px-16 py-8 sm:py-10 md:py-16 lg:py-20 rounded-none shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 group transition-all duration-300 hover:scale-[1.02] bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url(${ctaBg})` 
-            }}
-          >
-            
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/60 z-0"></div>
+    <section className="w-full relative overflow-hidden">
 
-            {/* Left Content */}
-            <div className="space-y-5 md:space-y-6 relative z-10 text-white">
-              
-              <div className="flex items-center gap-3 md:gap-4">
-                <div className="w-10 md:w-12 h-px bg-red-400"></div>
-                <p className="font-display font-semibold text-red-100 uppercase tracking-[0.2em] text-xs sm:text-sm">
-                  Let's Build Together
-                </p>
-              </div>
-              
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight uppercase">
-                Looking for a <span className="text-red-400">reliable</span> <br/> construction partner?
-              </h2>
-              
-              <p className="text-sm sm:text-base md:text-lg text-slate-200 font-sans font-normal leading-relaxed max-w-xl">
-                Let's build your dream together. With AK Construction, we are committed to turning your visions into reality.
+      <div
+        className="relative w-full min-h-[420px] md:min-h-[500px] grid md:grid-cols-2 items-center px-6 md:px-20 py-16 md:py-20 overflow-hidden"
+        style={{
+          backgroundImage: `url(${ctaBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+
+        {/* 🔥 DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/75"></div>
+
+        {/* 🔥 ANIMATED GRID (CONSTRUCTION STYLE) */}
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+          <div className="w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px] animate-gridMove"></div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="relative z-10 text-white max-w-xl">
+
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-[2px] bg-red-500"></div>
+            <MotionWrapper>
+              <p className="text-xs tracking-[0.3em] uppercase text-red-300 font-semibold">
+                LET'S BUILD TOGETHER
               </p>
-            </div>
-
-            {/* Right Side */}
-            <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-4 md:gap-6 relative z-10">
-              <Link to="/contact" className="w-full md:w-auto">
-                
-                <button className="w-full md:w-auto inline-flex items-center justify-center gap-2.5 md:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-none bg-red-600 text-white font-sans font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-slate-900 group">
-                  
-                  <SendHorizontal className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:rotate-12" />
-                  
-                  Get a Quote
-                  
-                  <Quote className="w-4 h-4 md:w-5 md:h-5 text-red-200" />
-                
-                </button>
-
-              </Link>
-            </div>
-
+            </MotionWrapper>
           </div>
-        </MotionWrapper>
+
+          <MotionWrapper>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight uppercase">
+              Looking for a <br />
+              <span className="text-red-500">Reliable</span> Construction Partner?
+            </h2>
+
+            <p className="mt-6 text-gray-300 text-sm md:text-base leading-relaxed">
+              We deliver precision-built projects with uncompromising quality and long-term durability.
+            </p>
+          </MotionWrapper>
+
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="relative z-10 flex justify-start md:justify-end mt-8 md:mt-0">
+
+          <Link to="/contact">
+            <PhysicsButton>
+              <div className="flex items-center gap-3">
+                <SendHorizontal className="w-4 h-4" />
+                Get a Quote
+              </div>
+            </PhysicsButton>
+          </Link>
+
+        </div>
+
       </div>
+
     </section>
   );
 };

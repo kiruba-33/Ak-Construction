@@ -1,4 +1,5 @@
 import React from "react";
+import MotionWrapper from "../MotionWrapper";
 
 const ServicesIntro = () => {
   return (
@@ -8,7 +9,7 @@ const ServicesIntro = () => {
 
         {/* Left Content */}
         <div className="space-y-4 md:space-y-6">
-          
+          <MotionWrapper type="perspective">
           <p className="text-xs sm:text-sm text-[#FF4D4D] font-display font-semibold tracking-[0.2em] uppercase">
             OUR SERVICES
           </p>
@@ -16,7 +17,7 @@ const ServicesIntro = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#0F172A] tracking-tight leading-tight">
             Comprehensive Construction Solutions
           </h2>
-
+           </MotionWrapper>
           <p className="text-[#475569] text-sm sm:text-base md:text-lg font-sans leading-relaxed">
             We provide end-to-end construction services tailored to meet your residential, commercial, and industrial needs with precision and quality.
           </p>

@@ -7,27 +7,21 @@ import QualityStandards from '../components/about/QualityStandards';
 import TechInnovation from '../components/about/TechInnovation';
 import Leadership from '../components/about/Leadership';
 import AboutCTA from '../components/about/AboutCTA';
+import AboutHeros from '../components/about/AboutHeros';
 
 const AboutPage = () => {
   return (
-    // FIX: 'bg-[#f3f4f4]' remove pannittu 'bg-transparent' kuduthurukkaen buddy.
-    // Ippo thaan pinnadi irukkura premium construction pattern mela theriyaum.
-    <div className="bg-transparent min-h-screen flex flex-col font-['Poppins'] selection:bg-red-100 selection:text-red-600">
+    /* FIX: 'font-sans' matthum 'antialiased' add panniyachu buddy. 
+       Ippo About page footer-um matha pages mathiriye modern look-la irukkum.
+    */
+    <div className="font-sans antialiased bg-transparent min-h-screen flex flex-col">
       
       {/* Main content area */}
       <main className="flex-grow">
-        <Hero 
-          title={<>Building Legacies <br /> Since 1995</>} 
-          type="image" 
-          /* NOTE: Hero image load aagalana background transparent-ah irukkum, 
-             so pattern nalla theriyaum.
-          */
-          src="hero1.webp"  
-        />
-
+        <AboutHeros/>
         {/* Sections container */}
         <div className="space-y-0">
-          <AboutHero />
+          <AboutHero/>
           <AboutStats />
           <WorkProcess />
           <QualityStandards />

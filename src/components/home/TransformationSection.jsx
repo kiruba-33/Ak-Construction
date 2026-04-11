@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react'; 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
+import  MotionWrapper  from '../MotionWrapper'
 import beforeImage from '../../assets/before.png';
 import afterImage from '../../assets/after.png';
 
@@ -21,16 +21,19 @@ const TransformationSection = () => {
   };
 
   return (
-    <section className="bg-[#f3f4f4] py-16 md:py-24 font-sans">
+    <section className="bg-transparent py-16 md:py-24 font-sans">
       
       {/* Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-black mb-4">
+           <MotionWrapper type='perspective'>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-[#0B1220] mb-4">
             Project Transformation
           </h2>
+           </MotionWrapper>
+          
           <p className="text-sm sm:text-base text-slate-500 font-normal leading-relaxed">
             Slide to see the magic of our construction work
           </p>

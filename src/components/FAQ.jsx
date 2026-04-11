@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import MotionWrapper from './MotionWrapper';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -36,24 +37,29 @@ const FAQ = () => {
   };
 
   return (
-    <section className="mt-32 mb-20 lg:mt-32 lg:mb-24 py-12 md:py-16 bg-[#f3f4f4] font-sans">
+    /* FIXED: Removed mt-32 and adjusted padding to prevent background color breaks */
+    <section className="py-12 md:py-20 lg:py-24 bg-transparent font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center lg:text-left mb-10 md:mb-16">
-          <h2 className="text-xs sm:text-sm md:text-base font-display font-semibold text-orange-600 tracking-[0.2em] uppercase">
+          <MotionWrapper type='perspective'>
+
+          
+          <h2 className="text-xs sm:text-sm md:text-base font-display font-semibold text-red-600 tracking-[0.2em] uppercase">
             Got Questions?
           </h2>
 
-          <p className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 tracking-tight leading-tight">
-            Frequently Asked <span className="text-gray-700">Questions</span>
-          </p>
+          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#0B1220] tracking-tight leading-tight">
+            Frequently Asked Questions
+          </h2>
+          </MotionWrapper>
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Image */}
+          {/* Image Area */}
           <div className="lg:col-span-5 order-1 lg:order-2 sticky lg:top-32">
             <div className="relative group mx-auto max-w-lg lg:max-w-none">
               <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-full h-full bg-orange-100 rounded-3xl group-hover:bg-orange-200 transition-colors duration-500"></div>
@@ -78,8 +84,8 @@ const FAQ = () => {
             </div>
           </div>
 
-          {/* FAQ */}
-          <div className="lg:col-span-7 order-2 lg:order-1 space-y-4 md:space-y-5 mt-8 lg:mt-0">
+          {/* FAQ Area */}
+          <div className="lg:col-span-7 order-2 lg:order-1 space-y-4 md:space-y-5">
             {faqs.map((faq, index) => {
               const isOpen = activeIndex === index;
               return (

@@ -8,7 +8,7 @@ const AboutSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 md:py-24 bg-transparent overflow-hidden">
+    <section className="pt-24 pb-16 sm:pt-28 sm:pb-20 md:py-24 bg-transparent overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         {/* --- Left Side: Image --- */}
@@ -26,21 +26,31 @@ const AboutSection = () => {
         </div>
 
         {/* --- Right Side: Content --- */}
-        <div className="w-full lg:w-1/2 text-left">
+        <div className="w-full lg:w-1/2 text-left mt-6 sm:mt-8 lg:mt-0">
 
-          <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 block mb-2">
-            Our Legacy
-          </span>
+          {/* 🔥 PERFECT SPACING SYSTEM */}
+          <div className="flex flex-col gap-5 sm:gap-6 md:gap-7">
+            <MotionWrapper type='perspective'>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
+              Our Legacy
+            </span>
 
-          <MotionWrapper>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-[#0B1220]">
-              Engineering Excellence,<br />
-              Building Your Dreams.
-            </h2>
-          </MotionWrapper>
+           
+<h2 className="
+  font-display
+  font-bold
+  text-[#0B1220]
+  tracking-tight
+  text-[clamp(1.6rem,3vw,3rem)]
+  max-w-[22ch] sm:max-w-[24ch] md:max-w-[26ch] lg:max-w-[28ch]
+  leading-[1.2] sm:leading-[1.2] md:leading-[1.15]
+  mb-4 sm:mb-5 md:mb-6
+">
+  Engineering Excellence,<br />
+  Building Your Dreams.
+</h2>
+            </MotionWrapper>
 
-          <div className="mt-5 space-y-4 md:space-y-5">
-            
             <p className="font-sans text-[#475569] text-base sm:text-lg leading-relaxed max-w-xl">
               At <span className="font-semibold text-black">AK Construction</span>, we don’t just build structures; we craft landmarks. 
               Our focus is on merging modern engineering with aesthetic perfection.
@@ -55,7 +65,7 @@ const AboutSection = () => {
           </div>
           
           {/* CTA */}
-          <div className="mt-6">
+          <div className="mt-8 sm:mt-10">
             <PhysicsButton 
               onClick={() => navigate('/about')}
               className="w-full sm:w-auto px-8 py-3 font-sans font-semibold text-white shadow-md active:scale-95"

@@ -1,14 +1,15 @@
 import React from 'react';
 import MotionWrapper from '../MotionWrapper';
+import Counter from '../Counter'; 
 
 const AboutStats = () => {
   const constructionBg = "hero1.webp"; 
 
   const stats = [
-    { label: 'Years of Excellence', value: '25+' },
-    { label: 'Projects Delivered', value: '500+' },
-    { label: 'Expert Engineers', value: '40+' },
-    { label: 'Quality Awards', value: '12+' }
+    { label: 'Years of Excellence', value: 25 },
+    { label: 'Projects Delivered', value: 500 },
+    { label: 'Expert Engineers', value: 40 },
+    { label: 'Quality Awards', value: 12 }
   ];
 
   return (
@@ -35,9 +36,10 @@ const AboutStats = () => {
               
               <div className="flex flex-col items-center text-center text-white">
                 
-                {/* Number */}
-                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3 md:mb-4">
-                  {stat.value}
+                {/* Number Section with Counter Animation */}
+                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3 md:mb-4 flex items-center">
+                  <Counter value={stat.value} duration={2} delay={i * 0.1} />
+                  <span>+</span>
                 </h3>
                 
                 {/* Line */}

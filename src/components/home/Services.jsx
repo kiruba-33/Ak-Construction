@@ -8,7 +8,8 @@ import {
 } from 'lucide-react';
 import { reveal, staggerContainer } from '../../constants'; 
 import MotionWrapper from '../MotionWrapper';
-import PhysicsButton from '../PhysicsButton'
+import PhysicsButton from '../PhysicsButton';
+import SlideIn from '../SlideIn';
 
 const Services = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="bg-[#f3f4f4] py-20 md:py-24 px-4 md:px-6 font-sans">
+    <section id="services" className="bg-transparent py-20 md:py-24 px-4 md:px-6 font-sans">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -44,13 +45,14 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="text-xs md:text-sm font-medium uppercase tracking-[0.2em] text-gray-500 block mb-3 font-display">
+          <MotionWrapper type='perspective'>
+          <span className="text-xs md:text-sm font-medium uppercase tracking-[0.2em] text-red-600 block mb-3 font-display">
             Expertise
           </span>
 
-          <MotionWrapper>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-tight">
-              Our Premium <span className="text-gray-600">Services</span>
+          
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1220] leading-tight">
+              Our Premium Services
             </h2>
 
             <div className="w-16 md:w-20 h-1 bg-black mx-auto mt-5 rounded-full" />
@@ -65,27 +67,34 @@ const Services = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
         >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={reveal}
-              whileInView="whileInView" 
-              whileHover={{ y: -8 }}
-              className="group bg-white p-6 md:p-7 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 flex flex-col h-full"
-            >
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-xl flex items-center justify-center mb-5 text-slate-900 transition-all duration-300 group-hover:bg-red-600 group-hover:text-white group-hover:scale-105">
-                {React.cloneElement(service.icon, { size: 24, strokeWidth: 1.5 })}
-              </div>
+          {services.map((service, index) => {
 
-              <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 font-display tracking-tight">
-                {service.title}
-              </h3>
+            const direction = index % 2 === 0 ? "left" : "right";
 
-              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed flex-grow font-sans">
-                {service.desc}
-              </p>
-            </motion.div>
-          ))}
+            return (
+              <SlideIn key={index} direction={direction} delay={index * 0.05}>
+                <motion.div
+                  variants={reveal}
+                  whileInView="whileInView"
+                  className="group bg-white p-6 md:p-7 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full
+                  transition-all duration-300 md:hover:-translate-y-2 md:hover:shadow-lg"
+                >
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-xl flex items-center justify-center mb-5 text-slate-900 
+                  transition-all duration-300 md:group-hover:bg-red-600 md:group-hover:text-white md:group-hover:scale-105">
+                    {React.cloneElement(service.icon, { size: 24, strokeWidth: 1.5 })}
+                  </div>
+
+                  <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 font-display tracking-tight">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed flex-grow font-sans">
+                    {service.desc}
+                  </p>
+                </motion.div>
+              </SlideIn>
+            );
+          })}
         </motion.div>
 
         {/* CTA */}

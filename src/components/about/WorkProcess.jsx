@@ -29,76 +29,69 @@ const steps = [
 
 const WorkProcess = () => {
   return (
-    <section className="py-16 md:py-24 bg-transparent font-sans">
+    <section className="py-16 md:py-20 bg-transparent font-sans">
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* TITLE */}
-        <div className="mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 tracking-tight">
-            Process
+        <div className="mb-12 md:mb-16">
+          <h2 className="
+            font-display font-bold text-[#0B1220] tracking-tight
+            text-[clamp(1.6rem,3vw,3rem)]
+            max-w-[28ch] leading-[1.15] mb-4
+          ">
+            Our Work Process
           </h2>
-          <p className="text-gray-500 mt-2 max-w-xl text-sm sm:text-base font-sans leading-relaxed">
+
+          <p className="text-gray-500 max-w-xl text-sm sm:text-base leading-relaxed">
             Our step-by-step workflow ensures quality, precision, and client satisfaction.
           </p>
         </div>
 
-        {/* STEPS */}
-        <div className="space-y-14 md:space-y-20 lg:space-y-24">
+        {/* TIMELINE */}
+        <div className="space-y-16 md:space-y-20">
+
           {steps.map((step, i) => (
-            <div key={i}>
+            <div
+              key={i}
+              className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${
+                i % 2 !== 0 ? "md:flex-row-reverse" : ""
+              }`}
+            >
 
-              {/* Divider */}
-              {i !== 0 && (
-                <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-8 md:mb-12"></div>
-              )}
+              {/* NUMBER */}
+              <div className="flex-shrink-0">
+                <span
+                  className="font-display font-bold leading-none text-[80px] sm:text-[100px] md:text-[120px]"
+                  style={{
+                    backgroundImage: `url(${step.img})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: "inline-block",
+                  }}
+                >
+                  {step.num}
+                </span>
+              </div>
 
-              <div
-                className={`group flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 transition-all duration-700 ${
-                  i % 2 !== 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
+              {/* CONTENT */}
+              <div className="max-w-md text-center md:text-left">
+                
+                <h3 className="text-lg sm:text-xl md:text-2xl font-display font-semibold text-gray-900 tracking-tight">
+                  {step.title}
+                </h3>
 
-                {/* NUMBER */}
-                <div className="relative flex-shrink-0 w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]">
-
-                  <span
-                    className="font-display font-bold leading-none text-[90px] sm:text-[120px] md:text-[150px] lg:text-[170px] transition-transform duration-500 group-hover:scale-110"
-                    style={{
-                      backgroundImage: `url(${step.img})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      display: "inline-block",
-                    }}
-                  >
-                    {step.num}
-                  </span>
-
-                  {/* Glow */}
-                  <span className="absolute inset-0 font-display font-bold text-[90px] sm:text-[120px] md:text-[150px] lg:text-[170px] text-gray-100 blur-sm opacity-40 -z-10">
-                    {step.num}
-                  </span>
-
-                </div>
-
-                {/* CONTENT */}
-                <div className="max-w-md text-center md:text-left transition-all duration-500 group-hover:-translate-y-1">
-                  
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-display font-semibold text-gray-900 tracking-tight">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-gray-500 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed font-sans">
-                    {step.desc}
-                  </p>
-
-                </div>
+                <p className="text-gray-500 mt-2 text-sm sm:text-base leading-relaxed">
+                  {step.desc}
+                </p>
 
               </div>
+
             </div>
           ))}
+
         </div>
 
       </div>

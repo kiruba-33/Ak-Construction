@@ -1,7 +1,5 @@
 import React from 'react';
 import MotionWrapper from '../MotionWrapper';
-import MotionImage from '../MotionImage';
-import { ShieldCheck, Award, Microscope, Layers } from 'lucide-react';
 
 const QualityStandards = () => {
   return (
@@ -9,25 +7,25 @@ const QualityStandards = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Top Section */}
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
           {/* Left */}
           <div>
-            <p className="text-xs sm:text-sm text-[#FF4D4D] font-display font-semibold mb-3 md:mb-4 tracking-[0.2em] uppercase">
-              MATERIALS & QUALITY
+            <MotionWrapper type='perspective'>
+              <p className="text-xs sm:text-sm text-[#FF4D4D] font-semibold mb-3 md:mb-4 tracking-[0.2em] uppercase">
+                MATERIALS & QUALITY
+              </p>
+
+              <h2 className="font-bold text-[#0B1220] text-[clamp(1.6rem,3vw,3rem)] leading-[1.2] mb-4 md:mb-6">
+                Built Stronger. <br /> Designed to Last.
+              </h2>
+            </MotionWrapper>
+
+            <p className="text-[#475569] text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-lg">
+              We use premium-grade materials and follow strict quality control processes.
             </p>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#0F172A] mb-5 md:mb-6 leading-tight tracking-tight">
-              Built Stronger. <br /> Designed to Last.
-            </h2>
-
-            <p className="text-[#475569] text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-lg font-sans leading-relaxed">
-              We use premium-grade materials and follow strict quality control processes to ensure durability, safety, and long-term performance in every project we deliver.
-            </p>
-
-            {/* Points */}
-            <div className="space-y-3 md:space-y-4 font-sans">
+            <div className="space-y-3 md:space-y-4">
               {[
                 "Premium-grade cement & steel",
                 "Certified and tested materials",
@@ -35,71 +33,85 @@ const QualityStandards = () => {
                 "Long-term structural durability",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  
-                  <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center rounded-full bg-[#FF4D4D]/10">
-                    <span className="text-[#FF4D4D] text-xs sm:text-sm font-bold">✓</span>
+                  <div className="w-4 h-4 flex items-center justify-center rounded-full bg-[#FF4D4D]/10">
+                    ✓
                   </div>
-
-                  <p className="text-[#334155] text-sm sm:text-base">
-                    {item}
-                  </p>
+                  <p className="text-sm">{item}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right */}
           <div className="relative">
             
-            <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-xl overflow-hidden shadow-xl">
               <img
                 src="/images/materials.jpg"
                 alt=""
-                className="w-full h-[280px] sm:h-[360px] md:h-[420px] lg:h-[480px] object-cover"
+                className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-cover"
               />
             </div>
 
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 sm:-bottom-8 md:-bottom-10 -left-4 sm:-left-6 md:-left-10 bg-white border border-[#E2E8F0] p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl shadow-lg max-w-[220px] sm:max-w-xs">
-              <h3 className="text-[#0F172A] font-display font-semibold text-base sm:text-lg mb-1.5 md:mb-2">
+            {/* ✅ MOBILE FLOAT */}
+            <div className="
+              block md:hidden
+              absolute -bottom-6 left-1/2 -translate-x-1/2
+              bg-white border p-3 rounded-lg shadow-md max-w-[180px]
+            ">
+              <h3 className="text-sm font-semibold text-center">
                 100% Quality Focus
               </h3>
-              <p className="text-[#475569] text-xs sm:text-sm font-sans leading-relaxed">
-                Every project undergoes strict inspection to ensure top-tier construction standards.
+              <p className="text-xs text-center">
+                Strict inspection ensures top-tier quality.
               </p>
+            </div>
+
+            {/* ✅ DESKTOP FLOAT */}
+            <div className="
+              hidden lg:block
+              absolute -bottom-10 left-1/2 -translate-x-1/2
+              lg:-left-10 lg:translate-x-0
+              bg-white border p-4 rounded-xl shadow-md max-w-[200px]
+            ">
+              <h3 className="text-sm font-semibold">100% Quality Focus</h3>
+              <p className="text-xs">Strict inspection ensures top-tier quality.</p>
             </div>
 
           </div>
 
         </div>
 
-        {/* Bottom Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-16 md:mt-24">
+        {/* GRID */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-16 md:mt-24">
+
+          {/* TABLET CARD */}
+          <div className="hidden md:block lg:hidden bg-white border p-5 rounded-xl shadow-sm">
+            <h3 className="text-sm md:text-lg font-semibold">
+              100% Quality Focus
+            </h3>
+            <p className="text-xs md:text-sm">
+              Strict inspection ensures top-tier quality.
+            </p>
+          </div>
 
           {[
             {
               title: "High-Grade Materials",
-              desc: "We source only the best materials to ensure long-lasting strength.",
+              desc: "We source only the best materials.",
             },
             {
               title: "Advanced Quality Checks",
-              desc: "Every stage is monitored with strict quality control measures.",
+              desc: "Every stage is monitored strictly.",
             },
             {
               title: "Built for Durability",
-              desc: "Our structures are designed to withstand time and environment.",
+              desc: "Designed to withstand time.",
             },
           ].map((card, i) => (
-            <div
-              key={i}
-              className="bg-white border border-[#E2E8F0] p-5 sm:p-6 rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition duration-300"
-            >
-              <h3 className="text-[#0F172A] text-lg sm:text-xl font-display font-semibold mb-2 tracking-tight">
-                {card.title}
-              </h3>
-              <p className="text-[#475569] text-sm font-sans leading-relaxed">
-                {card.desc}
-              </p>
+            <div key={i} className="bg-white border p-5 rounded-xl shadow-sm">
+              <h3 className="text-lg font-semibold">{card.title}</h3>
+              <p className="text-sm">{card.desc}</p>
             </div>
           ))}
 

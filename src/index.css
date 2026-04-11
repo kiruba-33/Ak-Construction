@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +7,7 @@
 @layer base {
   html {
     font-family: 'Poppins', sans-serif;
-    background-color: #f3f4f4;
+    background-color: #f5f5f4;
     scroll-behavior: auto !important;
 
     scrollbar-width: none;
@@ -19,12 +20,12 @@
   }
 
   body {
-    background-color: #f3f4f4;
+    background-color: #f5f5f4;
     color: #0f172a;
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-
+    font-family: 'Inter', sans-serif;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -195,4 +196,30 @@
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.animate-gridMove {
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-lightSweep {
+  animation: lightSweep 8s linear infinite;
 }

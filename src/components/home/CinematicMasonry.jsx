@@ -1,10 +1,11 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowUpRight, ChevronRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom'; // useNavigate import panniyaachu
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import PhysicsButton from '../PhysicsButton';
+import MotionWrapper from '../MotionWrapper';
 
-const projects = [
+const projectsData = [
   {
     id: 1,
     title: 'Modern Sky-High Residency',
@@ -50,56 +51,68 @@ const projects = [
 ];
 
 const CinematicMasonry = () => {
-  const navigate = useNavigate(); // navigate function-ai initialize panniyaachu
+  const navigate = useNavigate();
+
+  const [projects, setProjects] = useState(projectsData);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProjects(prev => [...prev].sort(() => Math.random() - 0.5));
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-16 md:py-24 bg-[#f3f4f4] text-black overflow-hidden font-sans">
+    <section className="py-16 md:py-24 bg-transparent text-black overflow-hidden font-sans">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-16 gap-6 md:gap-8">
           
           <div className="w-full lg:w-auto">
-            <motion.span 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="text-red-600 font-display font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 md:mb-4 block"
-            >
-              Showcase
-            </motion.span>
+            {/* 🔥 SHOWCASE TEXT - ANIMATION REMOVED */}
+            <MotionWrapper type='perspective'>
 
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-black leading-tight">
-              Cinematic <br /> 
-              <span className="text-slate-500 italic font-medium">Portfolio.</span>
+            
+            <span className="text-red-600 font-display font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 md:mb-4 block">
+              Showcase
+            </span>
+
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-[#0B1220] leading-tight">
+              Engineering <br /> 
+              <span className="text-[#0B1220] font-medium">Excellence.</span>
             </h2>
+            </MotionWrapper>
           </div>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="w-full lg:w-auto lg:mb-2"
-          >
+          {/* CTA (FIXED — NO JUMP) */}
+          <motion.div className="w-full lg:w-auto lg:mb-2">
             <PhysicsButton
-           type="button"
-      onClick={() => navigate('/gallery')}
-      className="group flex items-center justify-center gap-2.5 md:gap-3 bg-black text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-sans font-semibold text-sm md:text-base hover:bg-red-600 transition-all duration-500 w-full lg:min-w-[240px]"
-    >
-      Explore Full Gallery
+              type="button"
+              onClick={() => navigate('/gallery')}
+              className="group flex items-center justify-center gap-2.5 md:gap-3 bg-black text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-sans font-semibold text-sm md:text-base hover:bg-red-600 transition-all duration-500 w-full lg:min-w-[240px]"
+            >
+              Explore Full Gallery
             </PhysicsButton>
           </motion.div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[220px] sm:auto-rows-[250px] md:auto-rows-[300px] gap-4 md:gap-6">
+        {/* Grid (UNCHANGED) */}
+        <motion.div
+          layout
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          className="grid grid-cols-2 md:grid-cols-4 auto-rows-[220px] sm:auto-rows-[250px] md:auto-rows-[300px] gap-4 md:gap-6"
+        >
           {projects.map((project) => (
             <motion.div
               key={project.id}
+              layout
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.04 }}
+              onClick={() => navigate('/gallery')}
               className={`group relative overflow-hidden rounded-2xl md:rounded-3xl cursor-pointer ${project.className}`}
             >
               <div className="absolute inset-0 z-0">
@@ -125,16 +138,13 @@ const CinematicMasonry = () => {
                   <h3 className="text-base sm:text-lg md:text-2xl font-display font-bold leading-tight max-w-[200px]">
                     {project.title}
                   </h3>
-
-                  <div className="bg-white/10 backdrop-blur-md p-2.5 md:p-3 rounded-full group-hover:bg-red-600 transition-colors duration-300">
-                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
-                  </div>
                 </div>
 
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

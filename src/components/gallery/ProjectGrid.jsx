@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const imagesData = [
@@ -26,26 +26,50 @@ const item = {
 
 const ProjectGrid = () => {
   const [activeImage, setActiveImage] = useState(null);
+  const [images, setImages] = useState(imagesData);
+
+  // 🔥 SAME CINEMATIC SHUFFLE AS MASONRY
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImages((prev) => [...prev].sort(() => Math.random() - 0.5));
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full bg-[#f3f4f6] pt-8 pb-24">
 
       <motion.div
+        layout
         variants={container}
         initial="hidden"
         animate="show"
+        transition={{
+          layout: {
+            duration: 0.8,
+            ease: [0.25, 1, 0.5, 1], // 🔥 SAME CINEMATIC EASING
+          },
+        }}
         className="max-w-7xl mx-auto px-4 sm:px-6"
       >
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[220px] md:[grid-auto-flow:dense]">
 
-          {imagesData.map((img, index) => {
+          {images.map((img, index) => {
             const pattern = index % 6;
 
             return (
               <motion.div
                 key={img.id}
+                layout
                 variants={item}
+                transition={{
+                  layout: {
+                    duration: 0.8,
+                    ease: [0.25, 1, 0.5, 1], // 🔥 IMPORTANT
+                  },
+                }}
                 onClick={() => setActiveImage(img.url)}
                 className={`
                   relative group cursor-pointer overflow-hidden rounded-2xl
@@ -85,7 +109,7 @@ const ProjectGrid = () => {
         </div>
       </motion.div>
 
-      {/* 🔥 FULLSCREEN IMAGE VIEW */}
+      {/* FULLSCREEN (UNCHANGED) */}
       {activeImage && (
         <div
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"

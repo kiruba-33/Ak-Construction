@@ -1,4 +1,5 @@
 import React from "react";
+import MotionWrapper from "./MotionWrapper";
 
 const WhyChooseUs = () => {
   return (
@@ -6,7 +7,7 @@ const WhyChooseUs = () => {
       
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 px-4 sm:px-6">
-        
+        <MotionWrapper type="perspective">
         <p className="text-xs sm:text-sm text-[#FF4D4D] font-display font-semibold tracking-[0.2em] uppercase mb-2">
           WHY CHOOSE US
         </p>
@@ -14,7 +15,7 @@ const WhyChooseUs = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#0F172A] mb-4 tracking-tight leading-tight">
           Building Trust Through Quality & Expertise
         </h2>
-
+        </MotionWrapper>
         <p className="text-sm sm:text-base md:text-lg text-gray-500 font-sans leading-relaxed">
           We deliver reliable construction solutions with precision, safety, and commitment to excellence.
         </p>
