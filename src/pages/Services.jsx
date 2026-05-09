@@ -1,12 +1,10 @@
 import React from 'react';
-import ServiceGrid from '../components/sevices/ServiceGrid';
-import WorkProcess from '../components/about/WorkProcess';
-import ServiceCTA from '../components/sevices/ServiceCTA';
+import ServiceGrid from '../sections/sevices/ServiceGrid';
+import WorkProcess from '../sections/about/WorkProcess';
 import WhyChooseUs from '../components/WhyChooseUs';
-import QualityStandards from '../components/about/QualityStandards';
-import QuickContactStrip from '../components/QuickContactStrip';
-import ServicesIntro from '../components/sevices/ServicesIntro';
-import ServicesHero from '../components/sevices/ServicesHero';
+import QualityStandards from '../sections/about/QualityStandards';
+import ServicesIntro from '../sections/sevices/ServicesIntro';
+import ServicesHero from '../sections/sevices/ServicesHero';
 
 const Services = () => {
   return (

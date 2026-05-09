@@ -1,13 +1,13 @@
 import React from 'react';  
 import Hero from '../components/Hero'; 
-import AboutHero from '../components/about/AboutHero';
-import AboutStats from '../components/about/AboutStats';
-import WorkProcess from '../components/about/WorkProcess';
-import QualityStandards from '../components/about/QualityStandards';
-import TechInnovation from '../components/about/TechInnovation';
-import Leadership from '../components/about/Leadership';
-import AboutCTA from '../components/about/AboutCTA';
-import AboutHeros from '../components/about/AboutHeros';
+import AboutHero from '../sections/about/AboutHero';
+import AboutStats from '../sections/about/AboutStats';
+import WorkProcess from '../sections/about/WorkProcess';
+import QualityStandards from '../sections/about/QualityStandards';
+import TechInnovation from '../sections/about/TechInnovation';
+import Leadership from '../sections/about/Leadership';
+import AboutCTA from '../sections/about/AboutCTA';
+import AboutHeros from '../sections/about/AboutHeros';
 
 const AboutPage = () => {
   return (

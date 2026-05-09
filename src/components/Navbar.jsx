@@ -23,8 +23,6 @@ const Navbar = () => {
     { name: 'Contact', href: '/contact', icon: PhoneCall },
   ];
 
-  const isHome = location.pathname === "/";
-
   return (
     <>
       <motion.nav 
@@ -34,14 +32,14 @@ const Navbar = () => {
         className="fixed top-0 left-0 w-full z-50 pt-4 md:pt-6 font-['Poppins']"
       >
         <div className="max-w-[1440px] mx-auto px-4 md:px-6">
-          {/* Main Navbar Capsule - Mobile scroll logic updated */}
+          {/* Main Navbar Capsule */}
           <div className={`px-5 md:px-8 flex justify-between items-center transition-all duration-500 ${
             isScrolled 
               ? 'lg:bg-white/95 lg:backdrop-blur-xl lg:shadow-lg py-2.5 lg:rounded-full bg-transparent shadow-none' 
               : 'bg-transparent py-5 shadow-none'
           }`}>
             
-            {/* Logo Section - Hidden on Mobile/Tablet when scrolled */}
+            {/* Logo Section */}
             <Link 
               to="/" 
               className={`items-center gap-2 shrink-0 transition-all duration-500 ${
@@ -64,7 +62,7 @@ const Navbar = () => {
               />
             </Link>
 
-            {/* Desktop Nav Links - Remains unchanged */}
+            {/* Desktop Nav Links - Color fixed to White by default */}
             <div className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.href;
@@ -75,12 +73,10 @@ const Navbar = () => {
                     to={link.href} 
                     className={`text-[15px] font-bold transition-all duration-300 relative group ${
                       isActive 
-                        ? 'text-red-600' 
+                        ? 'text-red-600' // Page active-ah iruntha Red color
                         : isScrolled 
-                          ? 'text-slate-700 hover:text-black' 
-                          : isHome 
-                            ? 'text-white hover:text-red-400' 
-                            : 'text-[#001554] hover:text-red-600' 
+                          ? 'text-slate-700 hover:text-black' // Scroll pannunona (white bg-la) dark color
+                          : 'text-white hover:text-red-400' // FIXED: Desktop default color ippo White
                     }`}
                   >
                     {link.name}
@@ -90,16 +86,14 @@ const Navbar = () => {
               })}
             </div>
 
-            {/* Mobile Menu Trigger - Always visible dots */}
+            {/* Mobile Menu Trigger */}
             <div className="lg:hidden flex items-center">
               <button 
                 onClick={() => setIsOpen(!isOpen)}
                 className={`p-2.5 rounded-full transition-all duration-300 active:scale-90 shadow-md md:shadow-none ${
                   isScrolled 
                     ? 'text-black bg-white/95 backdrop-blur-md shadow-lg' 
-                    : isHome
-                      ? 'text-white bg-white/10' 
-                      : 'text-[#001554] bg-slate-100/50' 
+                    : 'text-white bg-white/10' 
                 }`}
                 aria-label="Toggle Menu"
               >

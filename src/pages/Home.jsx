@@ -1,14 +1,14 @@
 import React, { Suspense, lazy } from "react";
-import CinematicMasonry from "../components/home/CinematicMasonry";
-import TransformationSection from "../components/home/TransformationSection";
+import CinematicMasonry from "../sections/home/CinematicMasonry";
+import TransformationSection from "../sections/home/TransformationSection";
 import FAQ from "../components/FAQ";
-import AboutCTA from "../components/about/AboutCTA";
-import HomeHero from "../components/home/HomeHero";
+import AboutCTA from "../sections/about/AboutCTA";
+import HomeHero from "../sections/home/HomeHero";
 
 
 // 1. Lazy load ServicesSection to match AboutSection
-const AboutSection = lazy(() => import("../components/home/AboutSection"));
-const ServicesSection = lazy(() => import("../components/home/Services"));
+const AboutSection = lazy(() => import("../sections/home/AboutSection"));
+const ServicesSection = lazy(() => import("../sections/home/Services"));
 
 const Home = () => {
   return (

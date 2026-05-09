@@ -3,78 +3,73 @@
 export const DESTINATIONS = [
   {
     id: 1,
-    title: "SAINT ANTÖNIEN",
-    location: "Switzerland Alps",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1920",
-    description: "Experience the breathtaking beauty of the Swiss Alps in the serene village of Saint Antönien."
+    title: "TIMELESS INTERIOR LIVING",
+    image: "/galleryimages/galleryhero1.webp",
+    description: "Modern interiors crafted with elegance, comfort, and refined architectural detail."
   },
   {
     id: 2,
-    title: "NAGANO PREFECTURE",
-    location: "Japan Alps",
-    image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1920",
-    description: "Discover the majestic peaks and rich cultural heritage of Nagano, the heart of the Japan Alps."
+    title: "MODERN SPACE PLANNING",
+    image: "/galleryimages/galleryhero2.webp",
+    description: "Thoughtfully designed interiors that blend functionality, comfort, and modern aesthetics."
   },
   {
     id: 3,
-    title: "MARRAKECH MERZOUGA",
-    location: "Sahara Desert",
-    image: "https://images.unsplash.com/photo-1489493585363-d69421e0dee3?auto=format&fit=crop&q=80&w=1920",
-    description: "Embark on an unforgettable journey through the golden dunes of the Sahara in Merzouga."
+    title: "MODERN BEDROOM AESTHETICS",
+    image: "/galleryimages/galleryhero3.webp",
+    description: "Minimal bedroom interiors designed with warmth, comfort, and contemporary elegance."
   },
   {
     id: 4,
-    title: "YOSEMITE NATIONAL PARK",
-    location: "California, USA",
-    image: "https://images.unsplash.com/photo-1426604966848-d7adac402bdb?auto=format&fit=crop&q=80&w=1920",
-    description: "Marvel at the towering granite cliffs and ancient giant sequoias of Yosemite National Park."
+    title: "CONTEMPORARY ARCHITECTURAL DESIGN",
+    image: "/galleryimages/galleryhero4.webp",
+    description: "Bold modern architecture crafted with clean lines, premium lighting, and timeless exterior elegance."
   },
   {
     id: 5,
-    title: "LOS LANCES BEACH",
-    location: "Tarifa, Spain",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1920",
-    description: "Relax on the pristine white sands of Los Lances Beach, a paradise for wind and water sports."
+    title: "LUXURY MODERN KITCHEN",
+    image: "/galleryimages/galleryhero5.webp",
+    description: "Elegant kitchen interiors with sleek finishes and modern luxury styling."
   }
 ];
 
 export const imagesData = [
-  { 
-    id: 'hero',
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp',
-    title: 'Modern Luxury Home',
-    category: 'Architecture'
-  },
+ {
+  id: 'hero',
+  url: '/galleryimages/galleryhero4.webp',
+  blueprint: '/galleryimages/galleryhero4.webp',
+  title: 'Modern Luxury Home',
+  category: 'Architecture'
+},
 
   { 
     id: 1, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle1.webp', 
+    blueprint: '/galleryimages/galleryshuffle1.webp', 
     title: 'Grand Villa Entrance', 
     category: 'Construction'
   },
 
   { 
     id: 2, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/contact/contact.webp', 
+    blueprint: '/contact/contact.webp', 
     title: 'Elegant Interior Space', 
     category: 'Interior'
   },
 
   { 
     id: 3, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle3.webp', 
+    blueprint: '/galleryimages/galleryshuffle3.webp', 
     title: 'Resort-Style Living', 
     category: 'Landscape'
   },
 
   { 
     id: 4, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle4.webp', 
+    blueprint: '/galleryimages/galleryshuffle4.webp', 
     title: 'Urban Development', 
     category: 'Architecture'
   },
@@ -83,40 +78,40 @@ export const imagesData = [
 
   { 
     id: 5, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle5.webp', 
+    blueprint: '/galleryimages/galleryshuffle5.webp', 
     title: 'Luxury Apartment Block', 
     category: 'Residential'
   },
 
   { 
     id: 6, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle6.webp', 
+    blueprint: '/galleryimages/galleryshuffle6.webp', 
     title: 'Corporate Office Tower', 
     category: 'Commercial'
   },
 
   { 
     id: 7, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryhero5.webp', 
+    blueprint: '/galleryimages/galleryhero5.webp', 
     title: 'Modern Kitchen Design', 
     category: 'Interior'
   },
 
   { 
     id: 8, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle8.webp', 
+    blueprint: '/galleryimages/galleryshuffle8.webp', 
     title: 'Villa Landscape Garden', 
     category: 'Landscape'
   },
 
   { 
     id: 9, 
-    url: '/hero1.webp', 
-    blueprint: '/hero1.webp', 
+    url: '/galleryimages/galleryshuffle9.webp', 
+    blueprint: '/galleryimages/galleryshuffle8.webp', 
     title: 'Smart Home Exterior', 
     category: 'Architecture'
   },

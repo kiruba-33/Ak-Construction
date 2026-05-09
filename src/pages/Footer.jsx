@@ -1,107 +1,326 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // Animation-kku ithu mukkiyam buddy
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import PhysicsButton from '../components/PhysicsButton';
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUpRight,
+} from 'lucide-react';
 
 const Footer = () => {
   return (
-    // 1. bg-black add pannirukkén - image load aagattiye dark-ah irukkum
-    <footer className="relative bg-[#050505] text-white pt-20 pb-10 overflow-hidden">
+    <footer className="relative overflow-hidden bg-[#050505] text-white">
 
-      {/* 🔥 BACKGROUND IMAGE WITH FADE */}
-      {/* 2. z-index-ah 0-nu mathittén, ithu thaan image-ah mela kondu varum */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
-      >
-        {/* 3. backgroundImage-kku pathula img tag use panrathu safe buddy */}
-        <img 
-          src="/hero1.webp" 
-          alt="background" 
-          className="absolute inset-0 w-full h-full object-cover scale-110 opacity-40" 
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 z-0">
+
+        {/* BG IMAGE */}
+        <img
+          src="/hero1.webp"
+          alt="Footer Background"
+          loading="lazy"
+          className="w-full h-full object-cover opacity-[0.06] scale-110"
         />
 
-        {/* Dark Overlays for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]" />
-        <div className="absolute inset-0 bg-black/60" />
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/92" />
 
-        {/* Light Sweep Effect */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute w-[200%] h-[100%] bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[shine_8s_linear_infinite]" />
+        {/* RED GLOW */}
+        <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-red-600/10 blur-[180px]" />
+
+        {/* GRID */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:60px_60px]" />
         </div>
-      </motion.div>
 
-      {/* --- CONTENT AREA (z-10 vachathaan image-kku mela varum) --- */}
+      </div>
+
+      {/* MAIN */}
       <div className="relative z-10">
 
-        {/* MAIN GRID */}
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
-          {/* BRAND & LOGO */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              {/* 4. Logo Image Set Panniachu (Explorer-la 'loho.png'-nu irukku buddy) */}
-              <div className="w-12 h-12 overflow-hidden rounded-xl bg-white p-1">
-                <img src="/loho.png" alt="Logo" className="w-full h-full object-contain" />
-              </div>
-              <h2 className="text-2xl font-bold">
-              <span className="text-gray-400">Construction</span>
-              </h2>
-            </div>
-            <p className="text-gray-400 leading-relaxed">
-              Premium residential & commercial construction with 25+ years of trust and excellence.
-            </p>
-            <div className="flex gap-4">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <div key={i} className="p-3 bg-gray-800/80 backdrop-blur rounded-full hover:bg-red-600 hover:text-white transition cursor-pointer">
-                  <Icon size={18} />
+        {/* CONTENT */}
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 pt-24 pb-20">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] gap-16">
+
+            {/* BRAND */}
+            <div>
+
+              {/* LOGO */}
+              <div className="flex items-center gap-5 mb-8">
+
+                <div className="w-16 h-16 rounded-2xl bg-white shadow-2xl p-2">
+                  <img
+                    src="/loho.png"
+                    alt="AK Construction"
+                    loading='lazy'
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-              ))}
+
+                <div>
+
+                  <h2 className="text-3xl font-bold tracking-tight leading-tight">
+                    AK
+                    <br />
+                    Construction
+                  </h2>
+
+                  <p className="text-gray-500 mt-1 text-sm tracking-wide">
+                    Premium Construction
+                  </p>
+
+                </div>
+
+              </div>
+
+              {/* DESCRIPTION */}
+              <p className="text-gray-400 leading-relaxed text-[15px] max-w-md">
+                We build premium residential and commercial spaces with
+                precision engineering, architectural excellence, and
+                uncompromising construction quality.
+              </p>
+
+              {/* SOCIAL ICONS */}
+              <div className="flex items-center gap-4 mt-10">
+
+                {/* FACEBOOK */}
+                <a
+                  href="https://www.facebook.com/share/1CLgY4Tvtb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-12 h-12 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300"
+                >
+                  <Facebook
+                    size={18}
+                    className="group-hover:scale-110 transition"
+                  />
+                </a>
+
+                {/* INSTAGRAM */}
+                <a
+                  href="https://www.instagram.com/akcumbum?igsh=Ym51Z3lpMmRyaTVr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-12 h-12 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300"
+                >
+                  <Instagram
+                    size={18}
+                    className="group-hover:scale-110 transition"
+                  />
+                </a>
+
+                {/* MAIL */}
+                <a
+                  href="mailto:akcumbum@gmail.com"
+                  className="group w-12 h-12 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300"
+                >
+                  <Mail
+                    size={18}
+                    className="group-hover:scale-110 transition"
+                  />
+                </a>
+
+              </div>
+
             </div>
+
+            {/* QUICK LINKS */}
+            <div>
+
+              <h3 className="text-white text-xl font-semibold mb-8">
+                Quick Links
+              </h3>
+
+              <ul className="space-y-5">
+
+                {[
+                  ['Home', '/'],
+                  ['About', '/about'],
+                  ['Services', '/services'],
+                  ['Gallery', '/gallery'],
+                  ['Contact', '/contact'],
+                ].map(([label, link]) => (
+                  <li key={label}>
+                    <a
+                      href={link}
+                      className="group flex items-center gap-2 text-gray-400 hover:text-white transition"
+                    >
+                      <span>{label}</span>
+
+                      <ArrowUpRight
+                        size={15}
+                        className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                      />
+                    </a>
+                  </li>
+                ))}
+
+              </ul>
+
+            </div>
+
+            {/* SERVICES */}
+            <div>
+
+              <h3 className="text-white text-xl font-semibold mb-8">
+                Services
+              </h3>
+
+              <ul className="space-y-5 text-gray-400">
+
+                <li className="hover:text-white transition cursor-pointer">
+                  Residential Construction
+                </li>
+
+                <li className="hover:text-white transition cursor-pointer">
+                  Commercial Projects
+                </li>
+
+                <li className="hover:text-white transition cursor-pointer">
+                  Interior Design
+                </li>
+
+                <li className="hover:text-white transition cursor-pointer">
+                  Renovation Works
+                </li>
+
+                <li className="hover:text-white transition cursor-pointer">
+                  Architectural Planning
+                </li>
+
+              </ul>
+
+            </div>
+
+            {/* CONTACT */}
+            <div>
+
+              <h3 className="text-white text-xl font-semibold mb-8">
+                Contact Info
+              </h3>
+
+              <div className="space-y-7">
+
+                {/* ADDRESS */}
+                {/* ADDRESS */}
+<div className="flex items-start gap-4">
+
+  <div className="w-12 h-12 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center flex-shrink-0 mt-1">
+    <MapPin
+      size={18}
+      className="text-red-500"
+    />
+  </div>
+
+  <div>
+    <a
+      href="https://www.google.com/maps/dir//AK+Group+of+Companies,+Indira+Colony,+nearby+RR+International+School,+C.Pudupatti,+Puduppatti,+Tamil+Nadu+625556/@10.0159719,77.4633715,6889m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3b0705f33b2ac0e3:0x6be393af702e0d25!2m2!1d77.3027696!2d9.7601932!5m1!1e2?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-300 hover:text-white transition leading-relaxed"
+    >
+      Indira Colony, C.Pudupatti Cumbum-625556, Theni,
+      <br />
+      Tamil Nadu
+    </a>
+  </div>
+
+</div>
+
+                {/* PHONE */}
+                <div className="flex items-start gap-4">
+
+                  <div className="w-12 h-12 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center flex-shrink-0 mt-1">
+                    <Phone
+                      size={18}
+                      className="text-red-500"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+
+                    <a
+                      href="tel:+919362225555"
+                      className="text-gray-400 hover:text-white transition"
+                    >
+                      +91 93622 25555
+                    </a>
+
+                    <a
+                      href="tel:+919788111666"
+                      className="text-gray-400 hover:text-white transition"
+                    >
+                      +91 97881 11666
+                    </a>
+
+                  </div>
+
+                </div>
+
+                {/* EMAIL */}
+                <div className="flex items-center gap-4">
+
+                  <div className="w-12 h-12 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center flex-shrink-0">
+                    <Mail
+                      size={18}
+                      className="text-red-500"
+                    />
+                  </div>
+
+                  <div className="flex items-center min-h-[48px]">
+                    <a
+                      href="mailto:akcumbum@gmail.com"
+                      className="text-gray-400 hover:text-white transition break-all leading-none"
+                    >
+                      akcumbum@gmail.com
+                    </a>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
-          {/* QUICK LINKS */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 border-l-4 border-red-600 pl-3">Quick Links</h3>
-            <ul className="space-y-3 text-gray-400">
-              {["Home", "About", "Services", "Gallery"].map((item, i) => (
-                <li key={i} className="hover:text-red-500 transition cursor-pointer">{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          {/* SERVICES */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 border-l-4 border-red-600 pl-3">Services</h3>
-            <ul className="space-y-3 text-gray-400">
-              {["Residential Construction", "Commercial Projects", "3D Design", "Renovation"].map((service, i) => (
-                <li key={i} className="hover:text-red-500 transition cursor-pointer">{service}</li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 border-l-4 border-red-600 pl-3">Contact</h3>
-            <ul className="space-y-4 text-gray-400">
-              <li className="flex gap-3 hover:text-red-500 transition cursor-pointer"><MapPin size={20} /> Theni, Tamil Nadu</li>
-              <li className="flex gap-3 hover:text-red-500 transition cursor-pointer"><Phone size={20} /> +91 98765 43210</li>
-              <li className="flex gap-3 hover:text-red-500 transition cursor-pointer"><Mail size={20} /> info@akconstruction.com</li>
-            </ul>
-          </div>
         </div>
 
         {/* BOTTOM */}
-        <div className="mt-16 border-t border-gray-800/50 pt-6 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} AK Construction. All rights reserved.
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-7">
+
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5 border-t border-white/10 pt-7">
+
+            {/* COPYRIGHT */}
+            <p className="text-sm text-gray-500 text-center md:text-left">
+              © {new Date().getFullYear()} AK Construction. All Rights Reserved.
+            </p>
+
+            {/* DESIGN CREDIT */}
+            <a
+              href="https://navipromotions.in/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-all duration-300"
+            >
+              <span>
+                Designed by Navi Promotions
+              </span>
+
+              <ArrowUpRight
+                size={15}
+                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition"
+              />
+            </a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <style>
-        {`@keyframes shine { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }`}
-      </style>
     </footer>
   );
 };

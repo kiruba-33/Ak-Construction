@@ -1,5 +1,4 @@
 import React from "react";
-import MotionWrapper from "./MotionWrapper";
 
 const WhyChooseUs = () => {
   return (
@@ -7,7 +6,6 @@ const WhyChooseUs = () => {
       
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 px-4 sm:px-6">
-        <MotionWrapper type="perspective">
         <p className="text-xs sm:text-sm text-[#FF4D4D] font-display font-semibold tracking-[0.2em] uppercase mb-2">
           WHY CHOOSE US
         </p>
@@ -15,7 +13,7 @@ const WhyChooseUs = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#0F172A] mb-4 tracking-tight leading-tight">
           Building Trust Through Quality & Expertise
         </h2>
-        </MotionWrapper>
+
         <p className="text-sm sm:text-base md:text-lg text-gray-500 font-sans leading-relaxed">
           We deliver reliable construction solutions with precision, safety, and commitment to excellence.
         </p>
@@ -25,19 +23,21 @@ const WhyChooseUs = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[220px] sm:auto-rows-[240px] md:auto-rows-[260px] gap-6 md:gap-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
         {/* Card 1 */}
-        <div className="bg-white p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition flex flex-col justify-between">
+        <div className="bg-white p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md transition flex flex-col justify-between">
           <p className="text-gray-500 text-sm md:text-base font-sans mb-4 leading-relaxed">
             We ensure top-quality materials and strict construction standards.
           </p>
+
           <h3 className="text-lg md:text-xl font-display font-semibold text-[#0F172A] tracking-tight">
             99% Quality Assurance
           </h3>
         </div>
 
         {/* Card 2 */}
-        <div className="row-span-2 relative rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:scale-105 transition">
+        <div className="row-span-2 relative rounded-xl md:rounded-2xl overflow-hidden shadow-md">
           <img
-            src="/hero1.webp"
+            src="choose/center.webp"
+            loading="lazy"
             alt="Worker"
             className="w-full h-full object-cover"
           />
@@ -46,6 +46,7 @@ const WhyChooseUs = () => {
             <h3 className="text-lg md:text-xl font-display font-semibold">
               On-Time Delivery
             </h3>
+
             <p className="text-sm md:text-base text-gray-200 font-sans leading-relaxed">
               We complete projects on schedule without compromising quality.
             </p>
@@ -53,28 +54,31 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:scale-105 transition">
+        <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-md">
           <img
-            src="/images/site.jpg"
+            src="choose/right.webp"
+            loading="lazy"
             alt="Construction Site"
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Card 4 */}
-        <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:scale-105 transition">
+        <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-md">
           <img
-            src="/images/tools.jpg"
+            src="choose/left.webp"
+            loading="lazy"
             alt="Tools"
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Card 5 */}
-        <div className="bg-white p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition flex flex-col justify-between">
+        <div className="bg-white p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md transition flex flex-col justify-between">
           <h3 className="text-lg md:text-xl font-display font-semibold text-[#0F172A] mb-2 tracking-tight">
             300+ Projects Completed
           </h3>
+
           <p className="text-gray-500 text-sm md:text-base font-sans leading-relaxed">
             Trusted by hundreds of clients for consistent and reliable work.
           </p>

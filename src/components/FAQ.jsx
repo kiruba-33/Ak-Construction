@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import MotionWrapper from './MotionWrapper';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -37,15 +36,12 @@ const FAQ = () => {
   };
 
   return (
-    /* FIXED: Removed mt-32 and adjusted padding to prevent background color breaks */
     <section className="py-12 md:py-20 lg:py-24 bg-transparent font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center lg:text-left mb-10 md:mb-16">
-          <MotionWrapper type='perspective'>
 
-          
           <h2 className="text-xs sm:text-sm md:text-base font-display font-semibold text-red-600 tracking-[0.2em] uppercase">
             Got Questions?
           </h2>
@@ -53,7 +49,6 @@ const FAQ = () => {
           <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#0B1220] tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>
-          </MotionWrapper>
         </div>
 
         {/* Grid */}
@@ -61,23 +56,25 @@ const FAQ = () => {
           
           {/* Image Area */}
           <div className="lg:col-span-5 order-1 lg:order-2 sticky lg:top-32">
-            <div className="relative group mx-auto max-w-lg lg:max-w-none">
-              <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-full h-full bg-orange-100 rounded-3xl group-hover:bg-orange-200 transition-colors duration-500"></div>
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
               
               <div className="relative aspect-[4/3] md:aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                <img 
-                  src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=800&auto=format&fit=crop" 
-                  alt="High quality construction site" 
-                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                <img
+                  src="/homeimages/homefaq.webp"
+                  loading="lazy"
+                  alt="High quality construction site"
+                  className="w-full h-full object-cover"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
                 <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white">
                   <p className="font-display font-bold text-lg sm:text-xl md:text-2xl">
                     AK Construction
                   </p>
+
                   <p className="text-[10px] sm:text-xs md:text-sm opacity-80 uppercase tracking-wider font-sans">
-                    Building Dreams since 1995
+                    Building Dreams since 2016
                   </p>
                 </div>
               </div>
@@ -88,9 +85,10 @@ const FAQ = () => {
           <div className="lg:col-span-7 order-2 lg:order-1 space-y-4 md:space-y-5">
             {faqs.map((faq, index) => {
               const isOpen = activeIndex === index;
+
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`border border-gray-100 rounded-xl md:rounded-2xl bg-white shadow-sm transition-all duration-300 ease-in-out ${
                     isOpen ? 'shadow-lg ring-1 ring-gray-100 scale-[1.01]' : 'hover:shadow-md'
                   }`}
@@ -100,24 +98,28 @@ const FAQ = () => {
                     onClick={() => toggleFAQ(index)}
                     aria-expanded={isOpen}
                   >
-                    <span className={`text-sm sm:text-base md:text-lg font-display font-semibold transition-colors duration-300 ${
-                      isOpen ? 'text-orange-600' : 'text-gray-800'
-                    }`}>
+                    <span
+                      className={`text-sm sm:text-base md:text-lg font-display font-semibold transition-colors duration-300 ${
+                        isOpen ? 'text-orange-600' : 'text-gray-800'
+                      }`}
+                    >
                       {faq.question}
                     </span>
-                    
-                    <div className={`ml-4 flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}>
-                      <ChevronDown 
+
+                    <div
+                      className={`ml-4 flex-shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                    >
+                      <ChevronDown
                         className={`w-5 h-5 md:w-6 md:h-6 transition-colors ${
                           isOpen ? 'text-orange-600' : 'text-gray-400'
-                        }`} 
+                        }`}
                       />
                     </div>
                   </button>
-                  
-                  <div 
+
+                  <div
                     className={`overflow-hidden transition-all duration-500 ${
                       isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
