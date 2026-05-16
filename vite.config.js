@@ -5,6 +5,8 @@ export default defineConfig({
   plugins: [react()],
 
   build: {
+    sourcemap: false,
+    
     chunkSizeWarningLimit: 1000,
 
     rollupOptions: {
